@@ -78,7 +78,6 @@ export default class CarController {
     };
     try {
       const updateCar = await this.service.updateCar(id, carData);
-      console.log(updateCar);
       if (updateCar) {
         return this.res.status(200).json(updateCar);
       }

@@ -77,7 +77,6 @@ export default class MotorcycleController {
     const { id } = this.req.params;
     try {
       const updateMotorcycle = await this.service.updateMotorcycle(id, motorcycleData);
-      console.log(updateMotorcycle);
       if (updateMotorcycle) {
         return this.res.status(200).json(updateMotorcycle);
       }
