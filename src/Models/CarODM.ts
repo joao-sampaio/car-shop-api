@@ -17,9 +17,13 @@ export default class CarODM {
     });
     this.model = models.Car || model('Car', this.schema);
   }
+  public async findAll(): Promise<ICar[] | null> {
+    return this.model.find();
+  }
+  public async findById(id: string): Promise<ICar | null> {
+    return this.model.findById(id);
+  }
   public async create(carData: ICar): Promise<ICar> {
-    console.log('this.model.create: ', this.model.create);
-    const temp = this.model.create(carData);
-    return temp;
+    return this.model.create(carData);
   }
 }

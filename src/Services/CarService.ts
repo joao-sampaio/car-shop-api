@@ -9,11 +9,23 @@ export default class CarService {
     }
     return null;
   }
+  public async findAll() {
+    const carODM = new CarODM();
+    const query = await carODM.findAll();
+    if (query) {
+      const cars = query.map((car) => this.createCarDomain(car));
+      return cars;
+    }
+    return [];
+  }
+  public async findById(id: string) {
+    const carODM = new CarODM();
+    const query = await carODM.findById(id);
+    return this.createCarDomain(query);
+  }
   public async newCar(carData: ICar) {
     const carODM = new CarODM();
-    console.log('substage 01');
     const newCar = await carODM.create(carData);
-    console.log('substage 02', newCar);
     return this.createCarDomain(newCar);
   }
 }
