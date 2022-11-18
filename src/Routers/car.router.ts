@@ -7,6 +7,10 @@ carRouter.post(
   '/',
   (req, res, next) => new CarController(req, res, next).newCar(),
 );
+carRouter.put(
+  '/:id',
+  (req, res, next) => new CarController(req, res, next).updateCar(),
+);
 carRouter.get(
   '/',
   (req, res, next) => new CarController(req, res, next).findAll(),

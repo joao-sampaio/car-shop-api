@@ -26,4 +26,7 @@ export default class CarODM {
   public async create(carData: ICar): Promise<ICar> {
     return this.model.create(carData);
   }
+  public async update(id:string, carData: ICar): Promise<ICar | null> {
+    return this.model.findByIdAndUpdate(id, { ...carData }, { returnDocument: 'after' });
+  }
 }
